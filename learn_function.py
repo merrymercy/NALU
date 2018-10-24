@@ -244,7 +244,7 @@ if __name__ == '__main__':
     ctx = mx.cpu()
 
     if args.network is None:
-        networks = ['ReLU', 'NALU', 'NAC', 'Sigmoid']
+        networks = ['ReLU', 'Sigmoid', 'NAC', 'NALU']
     else:
         networks = [args.network]
 
