@@ -1,14 +1,6 @@
 # NALU
 An implementation of Neural Arithmetic Logic Units (https://arxiv.org/pdf/1808.00508.pdf)
 
-## Notes
-
-### Differences between this implementation and the original one in the paper
-* Use two separate weight matrices for the adder and the multiplier
-* The gate is independent of the input
-
-See [nalu.py](nalu.py) for more details. I found these modifications can help the performance on the static simple function learning task.
-
 ## Exp 1: Fail to Extrapolate
 Train an identity mapping on [-5, 5] and test it on [-20, 20]
 
@@ -54,4 +46,13 @@ python3 learn_function.py
 |a / b|3.07|0.36|23.82|1.32|
 |a ^ 2|57.99|0.00|76.48|81.51|
 |sqrt(a)|16.58|0.17|63.17|18.08|
+
+
+## Notes
+
+### Differences between this implementation and the original one in the paper
+* Use two separate weight matrices for the adder and the multiplier
+* The gate is independent of the input
+
+See [nalu.py](nalu.py) for more details. I found these modifications can help the performance on the static simple function learning task.
 
