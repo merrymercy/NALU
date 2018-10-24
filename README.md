@@ -1,5 +1,5 @@
 # NALU
-Implementation of Neural Arithmetic Logic Units (https://arxiv.org/pdf/1808.00508.pdf)
+An implementation of Neural Arithmetic Logic Units (https://arxiv.org/pdf/1808.00508.pdf)
 
 ## Notes
 
@@ -7,9 +7,10 @@ Implementation of Neural Arithmetic Logic Units (https://arxiv.org/pdf/1808.0050
 * Use two separate weight matrices for the adder and the multiplier
 * The gate is independent of the input
 
-See [nalu.py](nalu.py) for more details. I found these modifications can help the performance on the simple function learning task.
+See [nalu.py](nalu.py) for more details. I found these modifications can help the performance on the static simple function learning task.
 
 ## Exp 1: Fail to Extrapolate
+Train an identity mapping on [-5, 5] and test it on [-20, 20]
 
 ```bash
 python3 failure.py
@@ -21,7 +22,11 @@ python3 failure.py
 
 ![Failure](failure.png)
 
-## Exp 2: Simple Function Learning
+## Exp 2: Static Simple Function Learning
+Input a 100-dimensional vertex **x**, learn `y = func(a, b)`,
+where <img src="https://latex.codecogs.com/svg.latex?a=\sum_{i=N}^{M}(\mathbf{x}_i)" title=""/>
+, <img src="https://latex.codecogs.com/svg.latex?b=\sum_{i=P}^{Q}(\mathbf{x}_i)" title=""/>  and `func = +, -, x, /, ...`. Test the ability to interpolate and extrapolate.
+
 ```bash
 python3 learn_function.py
 ```
